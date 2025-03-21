@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <defs>
+        <style>.cls-1{fill:#4f46e5;}</style>
+    </defs>
+    <title>Fedel</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <rect class="cls-1" x="152.38" width="47.62" height="47.62" rx="23.81"/>
+            <rect class="cls-1" x="76.19" width="47.62" height="47.62" rx="23.81"/>
+            <rect class="cls-1" x="76.19" y="76.19" width="47.62" height="47.62" rx="23.81"/>
+            <rect class="cls-1" y="152.38" width="47.62" height="47.62" rx="23.81"/>
+            <rect class="cls-1" y="76.19" width="47.62" height="47.62" rx="23.81"/>
+            <rect class="cls-1" width="47.62" height="47.62" rx="23.81"/>
+        </g>
+    </g>
+</svg>
