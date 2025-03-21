@@ -6,12 +6,14 @@ import { Badge } from "../ui/badge";
 import { LinkIcon } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 
 export const ExperienceItem = ({
   item,
   isOpen,
   setOpen,
 }: ExperienceItemProps) => {
+  const [height, setHeight] = useState<string|number>(0);
   const handleCollapsible = () => {
     if (isOpen) {
       setOpen(null);
@@ -19,6 +21,11 @@ export const ExperienceItem = ({
       setOpen(item.id);
     }
   };
+  const onAnimationComplete = () => {
+    if (!isOpen) {
+      setHeight("auto");
+    }
+  }
   return (
     <div
       onClick={handleCollapsible}
@@ -61,10 +68,11 @@ export const ExperienceItem = ({
       </div>
       <motion.div
         initial={{ height: 0, opacity: 0 }}
-        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        animate={{ height: isOpen ? height : 0, opacity: isOpen ? 1 : 0 }}
         exit={{ height: 0, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="overflow-hidden">
+        onAnimationComplete={onAnimationComplete}
+        className="overflow-hidden grid">
         <div className="mt-4 flex flex-col gap-2">
           <div>
             <h4 className="text-slate-600 dark:text-slate-200 text-sm">
