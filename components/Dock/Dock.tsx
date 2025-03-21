@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue } from "framer-motion";
+import { motion, SpringOptions, useMotionValue } from "framer-motion";
 import { DockItem } from "./DockItem";
 import { DockType, ItemType } from "./types";
 import {
@@ -19,20 +19,21 @@ import GithubSVG from "@/public/icons/github.svg";
 import Link from "next/link";
 import { useContactContext } from "@/context/ContactContext";
 import { useEffect, useState } from "react";
+import useMobileScreen from "@/hooks/useMobileScreen";
 
-export const Dock = ({
-  items,
-  className,
-  spring = { mass: 0.1, stiffness: 150, damping: 12 },
-  magnification = 70,
-  distance = 200,
-  panelHeight = 64,
-  baseItemSize = 48,
-}: DockType) => {
+export const Dock = ({ items, className }: DockType) => {
   const mouseX = useMotionValue(Infinity);
   const { resolvedTheme, setTheme } = useTheme();
   const { setOpen } = useContactContext();
   const [mounted, setMounted] = useState(false);
+
+  const isMobile = useMobileScreen();
+
+  const spring: SpringOptions = { mass: 0.1, stiffness: 150, damping: 12 };
+  const magnification = isMobile ? 50 : 70;
+  const distance = 200;
+  const panelHeight = isMobile ? 54 : 64;
+  const baseItemSize = isMobile ? 36 : 48;
 
   useEffect(() => {
     setMounted(true);

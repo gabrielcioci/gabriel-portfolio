@@ -33,10 +33,4 @@ export type DockLabelType = {
 export type DockType = {
   items?: ItemType[];
   className?: string;
-  spring?: SpringOptions;
-  magnification?: number;
-  distance?: number;
-  panelHeight?: number;
-  dockHeight?: number;
-  baseItemSize?: number;
 };
