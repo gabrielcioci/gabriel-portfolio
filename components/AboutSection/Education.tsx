@@ -12,14 +12,14 @@ export const Education = () => {
       <motion.h3
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
         className="text-3xl font-medium text-teal-950 dark:text-white">
         Education
       </motion.h3>
       <motion.div
         initial={{ opacity: 0 }}
         animate={isVisible ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeInOut" }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
         className="p-4 animate-float rounded-lg flex items-center gap-1 bg-white/20 dark:bg-white dark:bg-opacity-[2%] border backdrop-blur dark:border-lime-100/5 mt-8">
         <div>
           <h4 className="text-lg font-medium text-teal-900 dark:text-white">

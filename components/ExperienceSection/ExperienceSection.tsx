@@ -2,7 +2,6 @@
 import { experience } from "@/utils/experience";
 import { ExperienceItem } from "./ExperienceItem";
 import AnimatedText from "../AnimatedText/AnimatedText";
-import { SplitText } from "../SplitText/SplitText";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Accordion } from "../ui/accordion";
@@ -19,12 +18,14 @@ export const ExperienceSection = () => {
         text="Experience"
         className="text-5xl font-medium font-clash text-teal-950 dark:text-lime-300"
       />
-      <SplitText className="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
-        I have collaborated with industry leaders in both startups and
+      <AnimatedText
+        delay={300}
+        text="I have collaborated with industry leaders in both startups and
         enterprises to build high-quality products. Whether building from the
         ground up or joining at key phases to ensure success, I thrive in
-        dynamic environments, delivering impactful results.
-      </SplitText>
+        dynamic environments, delivering impactful results."
+        className="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400"
+      />
       <Accordion
         type="single"
         collapsible={true}
@@ -38,7 +39,7 @@ export const ExperienceSection = () => {
             transition={{
               duration: 0.7,
               ease: "easeInOut",
-              delay: 1 + index * 0.2,
+              delay: 0.5 + index * 0.2,
             }}>
             <ExperienceItem item={item} />
           </motion.div>

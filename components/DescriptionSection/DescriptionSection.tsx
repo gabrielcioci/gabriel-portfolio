@@ -10,7 +10,6 @@ import PostgresqlSVG from "@/public/icons/postgresql.svg";
 import SassSvg from "@/public/icons/sass.svg";
 import TailwingSVG from "@/public/icons/tailwindcss.svg";
 import { CustomIcon } from "../CustomIcon";
-import { SplitText } from "../SplitText/SplitText";
 import AnimatedText from "../AnimatedText/AnimatedText";
 import { motion } from "framer-motion";
 
@@ -98,16 +97,18 @@ export const DescriptionSection = () => {
         text="What I do"
         className="text-5xl font-clash font-medium text-teal-950 dark:text-lime-300"
       />
-      <SplitText className="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
-        I&apos;ve been coding professionally for over 6 years now and currently
+      <AnimatedText
+        delay={300}
+        text="I've been coding professionally for over 6 years now and currently
         working as a Software Engineer specializing in Frontend development. But
         somehow, I also end up handling APIs, backend tasks, and business
-        logic — guess I accidentally became a Full-Stack dev!
-      </SplitText>
+        logic — guess I accidentally became a Full-Stack dev!"
+        className="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400"
+      />
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeInOut", delay: 1.5 }}>
+        transition={{ duration: 0.7, ease: "easeInOut", delay: 0.6 }}>
         <p className="inline-flex mt-6 items-end sm:items-center text-lg text-slate-500 dark:text-slate-400">
           Here are few technologies that are cup of my coffee
           <Coffee className="ml-2 text-lime-500/70 dark:text-lime-300" />

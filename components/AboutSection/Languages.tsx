@@ -12,7 +12,7 @@ export const Languages = () => {
       className="mt-16"
       initial={{ opacity: 0 }}
       animate={isVisible ? { opacity: 1 } : {}}
-      transition={{ duration: 1, ease: "easeInOut", delay: 0.3 }}
+      transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
       ref={divRef}>
       <h3 className="text-3xl font-medium text-teal-950 dark:text-white">
         Communication

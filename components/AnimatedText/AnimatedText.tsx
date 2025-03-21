@@ -21,7 +21,7 @@ const AnimatedText = ({
       {...props}>
       <motion.span
         ref={ref}
-        initial={{ y: "50%", opacity: 0 }}
+        initial={{ y: 50, opacity: 0 }}
         animate={isVisible ? { y: 0, opacity: 1 } : {}}
         transition={{ duration: 0.5, ease: "easeOut", delay: delay / 1000 }}
         className="inline-block">
