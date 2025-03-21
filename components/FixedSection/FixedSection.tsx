@@ -12,7 +12,7 @@ export const FixedSection = ({ className }: { className?: string }) => {
     <div
       className={cn(
         className,
-        "h-screen flex flex-col justify-center xl:fixed"
+        "h-[100dvh] flex flex-col justify-center xl:fixed"
       )}>
       <div className="w-40 h-40 md:w-48 md:h-48 mb-8 border-8 border-zinc-100 dark:border-zinc-900 ring-2 ring-teal-900/20 dark:ring-lime-300 rounded-full relative overflow-hidden">
         <Image

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gabrielcioci.com
+
+# Sitemaps
+Sitemap: https://gabrielcioci.com/sitemap.xml
