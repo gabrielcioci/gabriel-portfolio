@@ -4,11 +4,11 @@ import { ExperienceItem } from "./ExperienceItem";
 import AnimatedText from "../AnimatedText/AnimatedText";
 import { SplitText } from "../SplitText/SplitText";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { Accordion } from "../ui/accordion";
 
 export const ExperienceSection = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [experienceOpen, setExperienceOpen] = useState<number | null>(null);
   const isVisible = useInView(ref, { once: true, margin: "0px 0px -15%" });
   return (
     <div
@@ -25,9 +25,11 @@ export const ExperienceSection = () => {
         ground up or joining at key phases to ensure success, I thrive in
         dynamic environments, delivering impactful results.
       </SplitText>
-      <div
+      <Accordion
+        type="single"
+        collapsible={true}
         ref={ref}
-        className="mt-6 gap-4 flex flex-col">
+        className="mt-6">
         {experience.map((item, index) => (
           <motion.div
             key={index}
@@ -38,14 +40,10 @@ export const ExperienceSection = () => {
               ease: "easeInOut",
               delay: 1 + index * 0.2,
             }}>
-            <ExperienceItem
-              item={item}
-              isOpen={experienceOpen === item.id}
-              setOpen={setExperienceOpen}
-            />
+            <ExperienceItem item={item} />
           </motion.div>
         ))}
-      </div>
+      </Accordion>
     </div>
   );
 };

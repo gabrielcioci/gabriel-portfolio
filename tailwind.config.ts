@@ -12,21 +12,53 @@ export default {
     extend: {
       keyframes: {
         "border-spin": {
-          "100%": { transform: "rotate(360deg)" },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
         },
         shine: {
-          "0%": { "background-position": "100%" },
-          "100%": { "background-position": "-100%" },
+          "0%": {
+            "background-position": "100%",
+          },
+          "100%": {
+            "background-position": "-100%",
+          },
         },
         float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-10px)",
+          },
+        },
+        "accordion-down": {
+          from: {
+            height: "0",
+            opacity: "0",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+            opacity: "1",
+          },
+        },
+        "accordion-up": {
+          from: {
+            opacity: "1",
+            height: "var(--radix-accordion-content-height)",
+          },
+          to: {
+            opacity: "0",
+            height: "0",
+          },
         },
       },
       animation: {
         shine: "shine 5s linear infinite",
         border: "border-spin 4s linear infinite",
         float: "float 6s ease-in-out infinite",
+        "accordion-down": "accordion-down 0.3s ease-in-out",
+        "accordion-up": "accordion-up 0.3s ease-in-out",
       },
       colors: {
         background: "hsl(var(--background))",
@@ -84,7 +116,7 @@ export default {
           "linear-gradient(90deg, hsla(221, 45%, 73%, 1) 0%, hsla(220, 78%, 29%, 1) 100%)",
       },
       fontFamily: {
-        clash: ["'Clash Display'", "sans-serif"],
+        clash: ["Clash Display", "sans-serif"],
       },
     },
   },

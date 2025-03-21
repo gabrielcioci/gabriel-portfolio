@@ -30,10 +30,10 @@ export const Dock = ({ items, className }: DockType) => {
   const isMobile = useMobileScreen();
 
   const spring: SpringOptions = { mass: 0.1, stiffness: 150, damping: 12 };
-  const magnification = isMobile ? 50 : 70;
+  const magnification = isMobile ? 40 : 70;
   const distance = 200;
-  const panelHeight = isMobile ? 54 : 64;
-  const baseItemSize = isMobile ? 36 : 48;
+  const panelHeight = isMobile ? 52 : 64;
+  const baseItemSize = isMobile ? 32 : 48;
 
   useEffect(() => {
     setMounted(true);

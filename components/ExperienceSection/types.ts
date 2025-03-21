@@ -16,8 +16,6 @@ export type ExperienceItemType = {
 
 export type ExperienceItemProps = {
     item: ExperienceItemType;
-    isOpen: boolean;
-    setOpen: (id: number | null) => void;
 }
 
 export type ExperienceLinkProps = {
