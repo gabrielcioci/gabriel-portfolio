@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { AnimatedTextProps } from "./type";
+import { AnimatedTextProps } from "./types";
 import { motion, useInView } from "framer-motion";
 
 const AnimatedText = ({

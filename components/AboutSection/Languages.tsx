@@ -1,19 +1,15 @@
-import { LanguageGroupProps } from "./type";
+import { LanguageGroupProps } from "./types";
 import { Badge } from "../ui/badge";
 import { languages } from "@/utils/languages";
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import useInView from "@/hooks/useInView";
+import { cn } from "@/lib/utils";
 
 export const Languages = () => {
-  const divRef = useRef<HTMLDivElement>(null);
-  const isVisible = useInView(divRef, { once: true, margin: "0px 0px -15%" });
+  const [inView, ref] = useInView<HTMLDivElement>();
   return (
-    <motion.div
-      className="mt-16"
-      initial={{ opacity: 0 }}
-      animate={isVisible ? { opacity: 1 } : {}}
-      transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-      ref={divRef}>
+    <div
+      ref={ref}
+      className={cn("mt-16 fade-in-section", inView && "is-visible")}>
       <h3 className="text-3xl font-medium text-teal-950 dark:text-white">
         Communication
       </h3>
@@ -40,6 +36,6 @@ export const Languages = () => {
           </div>
         ))}
       </div>
-    </motion.div>
+    </div>
   );
 };

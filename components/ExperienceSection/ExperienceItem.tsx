@@ -9,12 +9,20 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../ui/accordion";
+import useInView from "@/hooks/useInView";
+import { cn } from "@/lib/utils";
 
 export const ExperienceItem = ({ item }: ExperienceItemProps) => {
+  const [inView, ref] = useInView<HTMLDivElement>();
   return (
     <AccordionItem
       value={"item-" + item.id}
-      className="backdrop-blur mt-4 flex cursor-pointer flex-col rounded bg-white/30 dark:bg-zinc-800/10 hover:dark:shadow-md hover:shadow hover:shadow-zinc-300/10 border border-zinc-200/50 hover:border-zinc-200/70 dark:border-lime-100/[3%] dark:hover:border-lime-100/5 px-4 transition-all">
+      ref={ref}
+      style={{ transitionDelay: `${item.id * 0.2}s` }}
+      className={cn(
+        "backdrop-blur mt-4 flex cursor-pointer flex-col rounded bg-white/30 dark:bg-zinc-800/10 hover:dark:shadow-md hover:shadow hover:shadow-zinc-300/10 border border-zinc-200/50 hover:border-zinc-200/70 dark:border-lime-100/[3%] dark:hover:border-lime-100/5 px-4 transition-all slide-left",
+        inView && "is-visible"
+      )}>
       <AccordionTrigger className="flex items-center hover:no-underline">
         <div className="flex flex-col sm:flex-row sm:items-center w-full">
           <div className="flex items-start sm:items-center gap-2">

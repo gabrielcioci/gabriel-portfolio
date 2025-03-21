@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import {
   Drawer,
   DrawerContent,
@@ -9,14 +9,21 @@ import { Button } from "@/components/ui/button";
 import { CodeIcon } from "lucide-react";
 import { CustomIcon } from "../CustomIcon";
 import { arsenalData } from "@/utils/arsenal";
+import useInView from "@/hooks/useInView";
+import { cn } from "@/lib/utils";
 
 export const ArsenalDrawer = () => {
+  const [inView, ref] = useInView<HTMLButtonElement>();
   return (
     <Drawer>
       <DrawerTrigger asChild>
         <Button
           variant="text"
-          className="mt-4 w-fit px-0 text-md">
+          ref={ref}
+          className={cn(
+            "mt-4 w-fit px-0 text-md fade-in-section",
+            inView && "is-visible"
+          )}>
           <CodeIcon className="w-4 h-4 mr-2" />
           See my full arsenal
         </Button>

@@ -4,68 +4,50 @@ import { TestimonialItem } from "./TestimonialItem";
 import { Button } from "../ui/button";
 import LinkedInSVG from "@/public/icons/linkedin.svg";
 import Link from "next/link";
-import AnimatedText from "../AnimatedText/AnimatedText";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import useInView from "@/hooks/useInView";
+import { cn } from "@/lib/utils";
 
 const firstColumnItems = testimonials.filter((_, index) => index % 2 === 0);
 const secondColumnItems = testimonials.filter((_, index) => index % 2 === 1);
 
 export const TestimonialSection = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isVisible = useInView(ref, { once: true, margin: "0px 0px -15%" });
-  const secondColumnDelay = 0.5;
+  const [inView, ref] = useInView<HTMLDivElement>();
+  const secondColumnDelay = 500;
   return (
     <div
       className="flex flex-col w-full relative"
+      ref={ref}
       id="testimonials">
       <div className="absolute right-1/3 top-1/4 w-96 h-96 rounded-full bg-gradient-blue opacity-10 dark:opacity-5 blur-[140px] -z-10" />
-      <AnimatedText
-        text="People I've worked with"
-        className="text-5xl font-medium font-clash text-teal-950 dark:text-lime-300"
-      />
-      <div
-        ref={ref}
-        className="grid grid-cols-12 md:gap-3 mt-6">
+      <h3
+        className={cn(
+          "text-5xl font-medium font-clash text-teal-950 dark:text-lime-300 fade-in-section",
+          inView && "is-visible"
+        )}>
+        People I&apos;ve worked with
+      </h3>
+      <div className="grid grid-cols-12 md:gap-3 mt-6">
         <div className="col-span-12 md:col-span-6">
           {firstColumnItems.map((item, index) => (
-            <motion.div
+            <TestimonialItem
               key={index}
-              initial={{ opacity: 0, y: 100 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-                delay: index * 0.2,
-              }}>
-              <TestimonialItem item={item} />
-            </motion.div>
+              item={item}
+              index={index}
+            />
           ))}
         </div>
         <div className="col-span-12 md:col-span-6">
           {secondColumnItems.map((item, index) => (
-            <motion.div
+            <TestimonialItem
+              item={item}
               key={index}
-              initial={{ opacity: 0, y: 100 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                ease: "easeInOut",
-                delay: secondColumnDelay + index * 0.2,
-              }}>
-              <TestimonialItem item={item} />
-            </motion.div>
+              index={index}
+              delay={secondColumnDelay}
+            />
           ))}
         </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={isVisible ? { opacity: 1, y: 0 } : {}}
-        transition={{
-          duration: 0.5,
-          ease: "easeInOut",
-          delay: 1,
-        }}>
+      <div className={cn("fade-in-section", inView && "is-visible")}>
         <Link
           href="https://www.linkedin.com/in/ciocigabi/details/recommendations/"
           target="_blank"
@@ -77,7 +59,7 @@ export const TestimonialSection = () => {
             recommendations
           </Button>
         </Link>
-      </motion.div>
+      </div>
     </div>
   );
 };

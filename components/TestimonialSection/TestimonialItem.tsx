@@ -1,14 +1,21 @@
 import Image from "next/image";
 import Card from "../Card/Card";
 import { testimonials } from "@/utils/testimonials";
+import useInView from "@/hooks/useInView";
+import { cn } from "@/lib/utils";
 
 export const TestimonialItem = ({
   item,
+  delay,
+  index,
 }: {
   item: (typeof testimonials)[number];
+  delay?: number;
+  index: number;
 }) => {
+  const [inView, ref] = useInView<HTMLDivElement>();
   return (
-    <Card className="mt-3">
+    <Card ref={ref} className={cn("mt-3 slide-up", inView && "is-visible")} style={{ transitionDelay: `${(delay || 0) + index * 100}ms` }}>
       <p className="text-slate-500 dark:text-slate-400">{item.text}</p>
       <div className="flex items-center mt-10">
         <div>

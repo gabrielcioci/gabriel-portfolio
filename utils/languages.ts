@@ -1,4 +1,4 @@
-import { LanguageGroupProps } from "@/components/AboutSection/type";
+import { LanguageGroupProps } from "@/components/AboutSection/types";
 
 export const languages: LanguageGroupProps = {
     native: [
