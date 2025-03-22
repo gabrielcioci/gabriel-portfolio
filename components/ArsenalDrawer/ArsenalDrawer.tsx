@@ -23,7 +23,8 @@ export const ArsenalDrawer = () => {
           className={cn(
             "mt-4 w-fit px-0 text-md fade-in-section",
             inView && "is-visible"
-          )}>
+          )}
+          style={{transitionDelay: "1s"}}>
           <CodeIcon className="w-4 h-4 mr-2" />
           See my full arsenal
         </Button>

@@ -47,7 +47,7 @@ export const TestimonialSection = () => {
           ))}
         </div>
       </div>
-      <div className={cn("fade-in-section", inView && "is-visible")}>
+      <div className={cn("fade-in-section", inView && "is-visible")} style={{ transitionDelay: "1000ms" }}>
         <Link
           href="https://www.linkedin.com/in/ciocigabi/details/recommendations/"
           target="_blank"
