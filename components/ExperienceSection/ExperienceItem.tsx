@@ -37,7 +37,7 @@ export const ExperienceItem = ({ item }: ExperienceItemProps) => {
                   />
                 </div>
               ) : (
-                item.company_logo
+                <div className="w-4 h-4">{item.company_logo}</div>
               )}
             </div>
             <div className="flex flex-col">

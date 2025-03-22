@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useContactContext } from "@/context/ContactContext";
-import Link from "next/link";
 
 export const FixedSection = ({ className }: { className?: string }) => {
   const { setOpen } = useContactContext();
@@ -40,8 +39,8 @@ export const FixedSection = ({ className }: { className?: string }) => {
             <Mail className="w-6 h-6 absolute opacity-0 -left-6 group-hover:opacity-100 bg-zinc-100 dark:bg-zinc-900 p-1 rounded group-hover:-left-3 transition-all ease-in-out" />
             Got a project?
           </Button>
-          <Link
-            href="/Gabriel_Cioci_Resume.pdf"
+          <a
+            href="/Gabriel_Cioci_resume.pdf"
             target="_blank">
             <Button
               size="lg"
@@ -50,7 +49,7 @@ export const FixedSection = ({ className }: { className?: string }) => {
               <DownloadCloudIcon className="w-4 h-4 mr-1" />
               Resume
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
