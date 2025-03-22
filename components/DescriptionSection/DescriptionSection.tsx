@@ -109,7 +109,7 @@ export const DescriptionSection = () => {
         </p>
         <p className="inline-flex mt-6 items-end sm:items-center text-lg text-slate-500 dark:text-slate-400">
           Here are few technologies that are cup of my coffee
-          <Coffee className="ml-2 text-lime-500/70 dark:text-lime-300" />
+          <Coffee className="hidden sm:inline-block ml-2 text-lime-500/70 dark:text-lime-300" />
         </p>
       </div>
       <div className="flex flex-wrap gap-x-2 gap-y-2 sm:gap-x-10 sm:gap-y-4 sm:grid sm:grid-cols-2 mt-6 w-fit">
