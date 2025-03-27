@@ -8,13 +8,51 @@ import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { SendIcon } from "lucide-react";
+import { ContactFormValues } from "./types";
+import { toast } from "sonner";
+import { useState } from "react";
+import { LoadingSpinner } from "../LoadingSpinner/LoadingSpinner";
 
 export const ContactDrawer = () => {
   const { open, setOpen } = useContactContext();
-  const { register, handleSubmit, formState } = useForm({
+  const [loading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
+    mode: "onTouched",
   });
-  const onSubmit = () => {};
+
+  const onSubmit = async (data: ContactFormValues) => {
+    try {
+      setLoading(true);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      setLoading(false);
+      if (!response.ok) {
+        toast.error("Something went wrong", {
+          description: result.error,
+        });
+      } else {
+        toast.success("Message sent!", {
+          description: "I will get back to you as soon as possible.",
+        });
+        reset();
+        setOpen(false);
+      }
+    } catch (error) {
+      toast.error("Unexpected error", {
+        description: JSON.stringify(error),
+      });
+    }
+  };
   return (
     <Drawer
       open={open}
@@ -32,29 +70,56 @@ export const ContactDrawer = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="gap-6 mt-10 flex flex-col">
-            <Input
-              {...register("name")}
-              type="text"
-              placeholder="Name"
-              className=""
-            />
-            <Input
-              {...register("email")}
-              type="email"
-              placeholder="Email Address"
-              className=""
-            />
-            <Textarea
-              {...register("message")}
-              placeholder="Message"
-              className="resize-none"
-            />
+            <div>
+              <Input
+                {...register("name")}
+                type="text"
+                placeholder="Name"
+                className=""
+              />{" "}
+              {errors.name && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.name.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <Input
+                {...register("email")}
+                type="email"
+                placeholder="Email Address"
+                className=""
+              />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
+            <div>
+              <Textarea
+                {...register("message")}
+                placeholder="Message"
+                className="resize-none"
+              />
+              {errors.message && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.message.message}
+                </p>
+              )}
+            </div>
             <Button
               type="submit"
               className="w-full mt-2"
-              disabled={!formState.isValid}>
-              <SendIcon className="w-4 h-4 mr-2" />
-              Send
+              disabled={!isValid || loading}>
+              {loading ? (
+                <LoadingSpinner />
+              ) : (
+                <>
+                  <SendIcon className="w-4 h-4 mr-2" />
+                  Send
+                </>
+              )}
             </Button>
           </form>
         </div>
