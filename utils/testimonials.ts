@@ -27,4 +27,18 @@ export const testimonials = [
     image:
       "https://media.licdn.com/dms/image/v2/C4E03AQFXEnR96a7YOw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1614955860556?e=1747267200&v=beta&t=oxk3xBhU7ZYzrLyFQ8PNxxXSnM0kQH3kr5XUY1KBON8",
   },
+  {
+    name: "George Puzur",
+    role: "Dev Lead",
+    text: "Gabriel has strong JavaScript skills and is highly adaptable to new technologies. I also want to highlight that the dashboard was built within a Drupal project, while Gabriel is primarily a React developer, and he adapted exceptionally well.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4E03AQHGDHJPjgdStw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1698095170765?e=1749081600&v=beta&t=ttPi_FKLi0IpZiKTWexhUuzgnGDbeEhqddse3XKMorA",
+  },
+  {
+    name: "Alex Petrisor",
+    role: "Flutter Developer",
+    text: "Gabriel's passion for continuous improvement and his ability to communicate complex ideas clearly make him an exceptional professional in his field.",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D03AQGFoaKmcGNXyw/profile-displayphoto-shrink_400_400/B4DZXcjkTZGkAg-/0/1743162066945?e=1749081600&v=beta&t=AuTfXcXD92aIYfNpdpTc4Mxyoqy7MUP0mSujViqR7Ck",
+  },
 ];
