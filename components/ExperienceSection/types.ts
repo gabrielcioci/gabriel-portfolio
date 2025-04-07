@@ -11,7 +11,7 @@ export type ExperienceItemType = {
     end_date?: string;
     tech?: string[];
     industry?: string;
-    achievements?: string[];
+    achievements?: string[] | string;
     links?: ExperienceLinkProps[];
 }
 
