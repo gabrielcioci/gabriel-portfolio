@@ -28,7 +28,7 @@ export const ExperienceItem = ({ item }: ExperienceItemProps) => {
           <div className="flex items-start sm:items-center gap-2">
             <div className="min-h-10 min-w-10 w-10 h-10 p-3 flex items-center rounded-full dark:bg-zinc-900 dark:ring-zinc-800 bg-white ring-1 ring-zinc-200/50">
               {typeof item.company_logo === "string" ? (
-                <div className="relative w-8 h-8">
+                <div className={cn("relative w-8 h-8", item.logo_class)}>
                   <Image
                     src={item.company_logo}
                     alt={item.company}
@@ -37,7 +37,9 @@ export const ExperienceItem = ({ item }: ExperienceItemProps) => {
                   />
                 </div>
               ) : (
-                <div className="w-4 h-4">{item.company_logo}</div>
+                <div className={cn("w-4 h-4", item.logo_class)}>
+                  {item.company_logo}
+                </div>
               )}
             </div>
             <div className="flex flex-col">
@@ -66,17 +68,22 @@ export const ExperienceItem = ({ item }: ExperienceItemProps) => {
             </h4>
           </div>
           <h4 className="text-slate-600 font-bold dark:text-slate-200 text-sm">
-            Achievements
+            Achievements:{" "}
+            <span className="font-medium dark:text-slate-400">
+              {typeof item.achievements === "string" && item.achievements}
+            </span>
           </h4>
-          <ul className="list-disc pl-6 space-y-1.5">
-            {item?.achievements?.map((desc, idx) => (
-              <li
-                key={idx}
-                className="text-sm text-slate-600 dark:text-slate-400">
-                {desc}
-              </li>
-            ))}
-          </ul>
+          {Array.isArray(item?.achievements) && (
+            <ul className="list-disc pl-6 space-y-1.5">
+              {item?.achievements?.map((desc, idx) => (
+                <li
+                  key={idx}
+                  className="text-sm text-slate-600 dark:text-slate-400">
+                  {desc}
+                </li>
+              ))}
+            </ul>
+          )}
           <div className="flex items-center gap-3 mt-1">
             {item.links?.map((link, idx) => (
               <Link

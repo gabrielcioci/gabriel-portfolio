@@ -5,6 +5,7 @@ export type ExperienceItemType = {
     role: string;
     company: string;
     company_logo: ReactNode | string;
+    logo_class?: string;
     company_link: string;
     start_date?: string;
     end_date?: string;

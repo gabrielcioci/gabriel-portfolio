@@ -5,6 +5,19 @@ import WebScrapingSVG from "../public/companies/webscraping.svg";
 export const experience = [
   {
     id: 1,
+    role: "Senior Frontend Developer",
+    company: "Legentic",
+    company_logo: '/companies/legentic.png',
+    company_link: "https://legentic.com/",
+    start_date: "Apr 2025",
+    end_date: "Present",
+    achievements: 'In progress...',
+    tech: ["Vue", "TypeScript", "Quasar", "Python (FastAPI)", "AWS"],
+    industry: "Fintech, Data & Analytics",
+    links: [{ label: "Legentic Platform", href: "https://legentic.com/" }],
+  },
+  {
+    id: 2,
     role: "Full Stack Developer / Product Owner",
     company: "Fedel",
     company_logo: <FedelSVG />,
@@ -22,7 +35,7 @@ export const experience = [
     links: [{ label: "Fedel App", href: "https://fedel.app/" }],
   },
   {
-    id: 2,
+    id: 3,
     role: "Senior Frontend Developer",
     company: "Insomniac Design",
     company_logo: <InsomniacSVG />,
@@ -53,7 +66,7 @@ export const experience = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     role: "Frontend Developer",
     company: "WebScraping API",
     company_logo: <WebScrapingSVG />,
@@ -83,7 +96,7 @@ export const experience = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     role: "Web Developer",
     company: "FreshClick",
     company_logo: '/companies/freshclick.png',
