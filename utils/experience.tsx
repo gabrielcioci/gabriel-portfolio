@@ -11,7 +11,13 @@ export const experience = [
     company_link: "https://legentic.com/",
     start_date: "Apr 2025",
     end_date: "Present",
-    achievements: 'In progress...',
+    achievements: [
+      'Led UI/UX modernization initiatives, resulting in a significantly improved user experience',
+      'Actively participated in strategic decision-making for interface design and user experience improvements',
+      'Collaborated closely with cross-functional teams (Product and Backend) to deliver seamless and responsive user experiences',
+      'Refactored and cleaned up legacy modules, enhancing performance and maintainability and scalability',
+      'Integrated new frontend functionalities and components, improving platform capabilities'
+    ],
     tech: ["Vue", "TypeScript", "Quasar", "Python (FastAPI)", "AWS"],
     industry: "Fintech, Data & Analytics",
     links: [{ label: "Legentic Platform", href: "https://legentic.com/" }],
