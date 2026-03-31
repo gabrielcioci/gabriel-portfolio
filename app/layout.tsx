@@ -5,6 +5,7 @@ import { Dock } from "@/components/Dock/Dock";
 import { ContactContextProvider } from "@/context/ContactContext";
 import { ReactNode } from "react";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Gabriel Cioci - Software Engineer | Portfolio",
@@ -52,18 +53,20 @@ export default function Layout({ children }: LayoutProps) {
               toastOptions={{
                 unstyled: true,
                 classNames: {
-                  error: 'border-red-400 text-red-400',
-                  info: 'border-white text-white',
-                  success: 'border-lime-400 text-lime-400',
-                  warning: 'border-orange-400 text-yellow-400',
-                  toast: 'bg-zinc-900 rounded p-3 border flex gap-2 items-baseline',
-                  title: 'text-lg',
-                  description: 'text-zinc-400 text-sm',
-                }
+                  error: "border-red-400 text-red-400",
+                  info: "border-white text-white",
+                  success: "border-lime-400 text-lime-400",
+                  warning: "border-orange-400 text-yellow-400",
+                  toast:
+                    "bg-zinc-900 rounded p-3 border flex gap-2 items-baseline",
+                  title: "text-lg",
+                  description: "text-zinc-400 text-sm",
+                },
               }}
             />
             <Dock />
             {children}
+            <Analytics />
           </ThemeProvider>
         </ContactContextProvider>
       </body>
